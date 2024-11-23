@@ -1,0 +1,159 @@
+/* General layout */
+.study-manager {
+    background-color: #e0ecf8;
+    width: 400px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .course {
+    background-color: #d3e4f4;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .goal {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .goal p {
+    flex: 1;
+    font-size: 16px;
+    color: #555;
+    margin: 0;
+  }
+  
+  /* Progress bar styling */
+  .progress-bar {
+    display: flex;
+    flex: 2;
+    gap: 5px;
+  }
+  
+  .progress-bar span {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #fff;
+  }
+  
+  .progress-bar span.filled {
+    background-color: red;
+    border-color: red;
+  }
+  
+  /* Button styling */
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .buttons button {
+    background-color: #6c9ff7;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .buttons button:hover {
+    background-color: #507edb;
+  }
+
+  /* Goal Details View */
+.goal-details {
+    background-color: #e0ecf8;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .goal-details h1 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .details-field, .description, .sub-goals {
+    margin: 10px 0;
+  }
+  
+  .description p, .details-field p {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .sub-goals p {
+    text-align: center;
+    font-size: 14px;
+    font-style: italic;
+    color: #777;
+  }
+  
+  /* Back Button */
+  .goal-details button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 15px;
+    background-color: #6c9ff7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .goal-details button:hover {
+    background-color: #507edb;
+  }
+
+  
+  .add-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .add-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .add-btn:hover {
+    background-color: #ddd;
+  }
+  
