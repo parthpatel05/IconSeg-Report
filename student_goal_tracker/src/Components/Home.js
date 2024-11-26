@@ -136,7 +136,10 @@ const Home = () => {
     );
   };
 
-  const handle_sub_goal_progress_change = (idx_goal, idx_progress) =>{
+  const handle_sub_goal_progress_change = (idx_goal, idx_progress, correctState=false) =>{
+    if (!correctState) {
+      return
+    }
     
     let total = subGoals[0].progress + subGoals[1].progress + subGoals[2].progress - subGoals[idx_goal].progress + idx_progress+  1;
 
@@ -169,6 +172,26 @@ const Home = () => {
   const handleCancelAddGoal = () => {
     setShowAddGoalForm(false); // Hide the form without saving
   };
+
+  const [subGoalInfo, setSubGoalInfo] = useState({materials: ["Material 1", "Material 2", "Material 3"], description:"Generated subgoal description", showing:[false, false, false]})
+
+  const handleSubGoalClick = (subGoalIndex, correctState=false) => {
+    if (!correctState) {
+      return
+    }
+    setSubGoalInfo((prevState) => {
+      // Create a new array for showing with the boolean flipped at the specified index
+      const updatedShowing = prevState.showing.map((item, index) =>
+        index === subGoalIndex ? !item : item
+      );
+  
+      // Return the updated state
+      return {
+        ...prevState,
+        showing: updatedShowing,
+      };
+    });
+  }
 
 
   return (
@@ -250,16 +273,29 @@ const Home = () => {
               <div className="sub-goals">
                 {subGoals.map((subGoal, subGoalIndex) => (
                   <div className="sub-goal" key={subGoalIndex}>
-                    <p>Will be generated later by ML model</p>
+                    <p onClick={() => handleSubGoalClick(subGoalIndex, true)}> <b>Sub Goal {subGoalIndex+1}:</b> Will be generated later by ML model</p>
                     <div className="progress-bar">
                       {[...Array(5)].map((_, idx) => (
                         <span
                           key={idx}
                           className={idx < subGoal.progress ? 'filled' : ''}
-                          onClick={() => handle_sub_goal_progress_change(subGoalIndex, idx)}
+                          onClick={() => handle_sub_goal_progress_change(subGoalIndex, idx, true)}
                         ></span>
                       ))}
+                      
                     </div>
+                    {subGoalInfo.showing[subGoalIndex] &&
+                        <div>
+                          <div className="description">
+                            <p>{subGoalInfo.description +" " + (subGoalIndex + 1)}</p>
+                          </div>
+                          <div className="materials">
+                            <div className="material">{subGoalInfo.materials[0]}</div>
+                            <div className="material">{subGoalInfo.materials[1]}</div>
+                            <div className="material">{subGoalInfo.materials[2]}</div>
+                          </div>
+                        </div>
+                      }
                   </div>
                 ))}
               </div>
